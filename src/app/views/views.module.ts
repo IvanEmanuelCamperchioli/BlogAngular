@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDividerModule} from '@angular/material/divider';
+
 import { UsersComponent } from './users/users.component';
 
 @NgModule({
@@ -8,7 +11,9 @@ import { UsersComponent } from './users/users.component';
     UsersComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatExpansionModule,
+    MatDividerModule
   ],
   exports: [
     UsersComponent
