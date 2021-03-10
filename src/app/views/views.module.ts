@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { NavbarComponent } from './navbar/navbar.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
-    NavbarComponent
+    UsersComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    NavbarComponent
+    UsersComponent
   ]
 })
-export class ComponentsModule { }
+export class ViewsModule { }
