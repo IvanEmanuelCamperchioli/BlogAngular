@@ -8,12 +8,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { routes } from './components-routing.module';
+import { PostCommentsComponent } from './post-comments/post-comments.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     FooterComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    PostCommentsComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +25,7 @@ import { routes } from './components-routing.module';
   exports: [
     NavbarComponent,
     FooterComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
   ]
 })
 export class ComponentsModule { }

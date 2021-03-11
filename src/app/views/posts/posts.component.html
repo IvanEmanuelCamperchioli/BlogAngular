@@ -18,9 +18,14 @@
             <mat-divider></mat-divider>
             <mat-list-item class="mat-list-item mt-3"><p><b>Contenido: </b> {{ post.body }}</p></mat-list-item>
             <mat-divider></mat-divider>
-            <mat-panel-description class="col-md mt-3">
-                <a [routerLink]="['/details/userDetails', post.userId]">Detalle de usuario</a>
-            </mat-panel-description>
+            <div class="d-flex col-sm-5">
+                <mat-panel-description class="col-md mt-3">
+                    <a [routerLink]="['/details/user-details', post.userId]">Detalle de usuario</a>
+                </mat-panel-description>
+                <mat-panel-description class="col-md mt-3">
+                    <a [routerLink]="['/details/post-comments', post.id]">Comentarios</a>
+                </mat-panel-description>    
+            </div>
             <mat-divider></mat-divider>
         </mat-list>
     </mat-expansion-panel>
