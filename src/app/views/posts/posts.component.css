@@ -1,3 +1,13 @@
 .mat-list-item {
     border-bottom: 3px solid #9575CD;
 }
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.separate {
+    letter-spacing: 1px;
+}
