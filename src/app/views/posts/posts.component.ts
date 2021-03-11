@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from 'src/app/models/posts.model';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-posts',
@@ -13,7 +13,7 @@ export class PostsComponent implements OnInit {
   posts: Post;
   postsById: number = 0
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) {
+  constructor(private httpService: HttpService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {                                                                                       
       this.postsById = parseFloat(params.id)
     })
@@ -23,20 +23,19 @@ export class PostsComponent implements OnInit {
     if(this.postsById) {
       this.getPostById()
     } else {
-      this.httpGet()
+      this.getAll()
     }
   }
 
-  httpGet() {
-    this.http.get<Post>('https://jsonplaceholder.typicode.com/posts').subscribe( response => {
+  getAll() {
+    this.httpService.getPosts().subscribe( response => {
       this.posts = response;
     })
   }
 
   getPostById() {
-    this.http.get<Post>(`https://jsonplaceholder.typicode.com/user/${this.postsById}/posts`).subscribe( response => {
+    this.httpService.getPostById(this.postsById).subscribe( response => {
       this.posts = response;
-      console.log(this.posts)
     })
   }
 

@@ -9,6 +9,7 @@ import { ComponentsModule } from './components/components.module';
 import { ViewsModule } from './views/views.module';
 
 import { AppComponent } from './app.component';
+import { HttpService } from './services/http.service';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { AppComponent } from './app.component';
     ViewsModule,
     HttpClientModule
   ], 
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

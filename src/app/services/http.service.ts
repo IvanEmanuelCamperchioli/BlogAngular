@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../models/user.model';
+import { Post } from '../models/posts.model';
 
 @Injectable({
   providedIn: 'root'
@@ -7,22 +9,27 @@ import { HttpClient } from '@angular/common/http';
 
 export class HttpService {
 
-  users: any = []
+  users: User;
 
   constructor(private http: HttpClient) { 
-    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe( response => {
-      this.users = response;
-    })
+    console.log("servicio vinculado")
   }
-
-  ngOnInit() {
-    this.getUsers()
-  }
-
+  
   getUsers() {
-    return this.users;
+    return this.http.get<User>('https://jsonplaceholder.typicode.com/users')
   }
 
+  getUserById(id) {
+    return this.http.get<User>(`https://jsonplaceholder.typicode.com/users/${id}`)
+  }
+
+  getPosts() {
+    return this.http.get<Post>('https://jsonplaceholder.typicode.com/posts')
+  }
+
+  getPostById(id) {
+    return this.http.get<Post>(`https://jsonplaceholder.typicode.com/user/${id}/posts`)
+  }
 
 
 }
