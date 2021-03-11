@@ -1,4 +1,14 @@
-
-<div *ngFor="let comment of comments">
-    <p>{{comment.name}}</p>
-</div>
+<mat-accordion >
+    <mat-expansion-panel class="container" *ngFor="let comment of comments" hideToggle>
+        <mat-expansion-panel-header class="row">
+            <mat-panel-title class="col-md-2">
+                {{ comment.name }}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        
+        <mat-list class="container">
+            <mat-list-item class="border-item mb-5"><p><b>Correo Electrónico:</b> {{ comment.email }}</p></mat-list-item>
+            <mat-list-item class="border-item mb-5"><p><b>Comentario:</b> {{ comment.body }}</p></mat-list-item>
+        </mat-list>
+    </mat-expansion-panel>
+</mat-accordion>

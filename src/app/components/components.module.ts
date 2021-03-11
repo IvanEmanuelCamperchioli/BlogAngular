@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { RouterModule } from '@angular/router';
 import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -20,6 +21,7 @@ import { PostCommentsComponent } from './post-comments/post-comments.component';
   imports: [
     CommonModule,
     MatListModule,
+    MatExpansionModule,
     RouterModule.forChild(routes)
   ],
   exports: [
