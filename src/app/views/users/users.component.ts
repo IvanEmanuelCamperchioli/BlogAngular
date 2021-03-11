@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router'
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-users',
@@ -8,17 +10,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsersComponent implements OnInit {
 
-  users: any = []
+  users: User;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.httpGet()
+    
   }
 
   httpGet() {
-    this.http.get('https://jsonplaceholder.typicode.com/users').subscribe( response => {
-      this.users = response
+    this.http.get<User>('https://jsonplaceholder.typicode.com/users').subscribe( response => {
+      this.users = response;
     })
   }
 

@@ -1,11 +1,11 @@
 <mat-accordion >
-    <mat-expansion-panel class="container" *ngFor="let user of users; index as i" hideToggle>
+    <mat-expansion-panel class="container" *ngFor="let user of users" hideToggle>
         <mat-expansion-panel-header class="row">
             <mat-panel-title class="col-md-2">
                 {{ user.id }} - {{ user.username }}
             </mat-panel-title>
             <mat-panel-description class="col-sm">
-                <mat-icon class="mat-icon-rtl-mirror" svgIcon="thumb-up"></mat-icon>
+               <a [routerLink]="['/users/posts', user.id]">Posteos</a>
             </mat-panel-description>
             <mat-panel-description class="col-sm">
                 aquí estarán los botones
@@ -13,21 +13,8 @@
             <mat-panel-description class="col-sm">
                 aquí estarán los botones
             </mat-panel-description>
-
         </mat-expansion-panel-header>
-        <mat-list class="row">
-            <mat-list-item class="mat-list-item mt-3"><p><b>Nombre y apellido:</b> {{ user.name }}</p></mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item class="mat-list-item mt-3"><p><b>Sitio web:</b> {{ user.website }}</p></mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item class="col-sm col-lg-3 mt-3">
-                <div >
-                    <p class="text-center"><b>Empresa</b></p> 
-                    <p><b>Nombre:</b> {{ user.company.name }}</p> 
-                    <p><b>Frase:</b> {{ user.company.catchPhrase }}</p> 
-                    <p><b>Bs:</b> {{ user.company.bs }}</p>    
-                </div>
-            </mat-list-item>
-        </mat-list>
+        
+        <app-user-details [user]="user" ></app-user-details>
     </mat-expansion-panel>
 </mat-accordion>

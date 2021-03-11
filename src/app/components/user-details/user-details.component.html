@@ -1,0 +1,12 @@
+<mat-list class="container">
+    <mat-list-item class="border-item mb-5"><p><b>Nombre y apellido:</b> {{ user.name }}</p></mat-list-item>
+    <mat-list-item class="border-item mb-5"><p><b>Sitio web:</b> {{ user.website }}</p></mat-list-item>
+    <mat-list-item class="col-sm col-lg-3 mb-5">
+        <div>
+            <p class="text-center"><b>Empresa</b></p> 
+            <p><b>Nombre:</b> {{ user.company.name }}</p> 
+            <p><b>Frase:</b> {{ user.company.catchPhrase }}</p> 
+            <p><b>Bs:</b> {{ user.company.bs }}</p>    
+        </div>
+    </mat-list-item>
+</mat-list>
