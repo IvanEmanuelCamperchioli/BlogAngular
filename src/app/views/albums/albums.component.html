@@ -1,1 +1,25 @@
-<p>albums works!</p>
+<mat-accordion >
+    <mat-expansion-panel class="container" *ngFor="let album of albums" hideToggle>
+        <mat-expansion-panel-header class="row">
+            <mat-panel-title class="col-md-2">
+                Album: {{ album.id }}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        
+        <mat-list class="row">
+            <mat-list-item class="mat-list-item mt-3"><p><b>Título: </b> {{ album.title }}</p></mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item class="mat-list-item mt-3"><p><b>pertenecen al usuario n° </b> {{ album.userId }}</p></mat-list-item>
+            <mat-divider></mat-divider>
+            <div class="d-flex col-sm-5">
+                <mat-panel-description class="col-md mt-3">
+                    <a [routerLink]="['/details/user-details', album.userId]">Detalle de usuario</a>
+                </mat-panel-description>
+                <mat-panel-description class="col-md mt-3">
+                    <a [routerLink]="['/details/album-photos', album.userId]" >Galería de fotos</a>
+                </mat-panel-description>    
+            </div>
+            <mat-divider></mat-divider>
+        </mat-list>
+    </mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,18 @@
+.photo {
+    height: 15vw;
+    width: 15vw;
+}
+
+.img {
+    width: 25%;
+    margin: 2vh 0 5vh 0;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}

@@ -37,17 +37,16 @@ export class PostsComponent implements OnInit {
   }
 
   getPostById() {
-    this.httpService.getPostById(this.postsById).subscribe( response => {
+    this.httpService.getById(this.postsById).subscribe( response => {
       this.posts = response;
     })
   }
   
   sendId(id: number) {
-    console.log(this.postsById)
     if(id === null || id === undefined) {
       alert('debes ingresar un valor')
     } else {
-      this.httpService.getPostById(id).subscribe( response => {
+      this.httpService.getById(id).subscribe( response => {
         this.posts = response;
       })
     } 

@@ -8,16 +8,16 @@
 </div>
 
 <mat-accordion >
-    <mat-expansion-panel class="container" *ngFor="let post of posts" hideToggle>
+    <mat-expansion-panel class="container" *ngFor="let post of posts; index as i" hideToggle>
         <mat-expansion-panel-header class="row">
-            <mat-panel-title class="col-md-2">
-                Id de usuario: {{ post.userId }}
+            <mat-panel-title *ngIf="postsById; else userItem" class="col-md-2">
+                {{ i + 1 }} Posteo
             </mat-panel-title>
-            <mat-panel-description class="col-sm">
-                Botón
-            </mat-panel-description>
-
+            <ng-template #userItem>
+                Posteos del usuario {{ post.userId }}
+            </ng-template>
         </mat-expansion-panel-header>
+        
         <mat-list class="row">
             <mat-list-item class="mat-list-item mt-3"><p><b>Título: </b> {{ post.title }}</p></mat-list-item>
             <mat-divider></mat-divider>
