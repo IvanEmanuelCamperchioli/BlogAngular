@@ -5,6 +5,9 @@ import { RouterModule } from '@angular/router';
 import { routes } from './views-routing.module';
 
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatRippleModule} from '@angular/material/core';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
 
 import { ComponentsModule } from '../components/components.module';
 import { FormsModule } from '@angular/forms';
@@ -12,16 +15,21 @@ import { FormsModule } from '@angular/forms';
 import { UsersComponent } from './users/users.component';
 import { PostsComponent } from './posts/posts.component';
 import { AlbumsComponent } from './albums/albums.component';
+import { TodosComponent } from './todos/todos.component';
 
 @NgModule({
   declarations: [
     UsersComponent,
     PostsComponent,
-    AlbumsComponent
+    AlbumsComponent,
+    TodosComponent
   ],
   imports: [
     CommonModule,
     MatExpansionModule,
+    MatRippleModule,
+    MatInputModule,
+    MatCardModule,
     FormsModule,
     ComponentsModule,
     RouterModule.forChild(routes),

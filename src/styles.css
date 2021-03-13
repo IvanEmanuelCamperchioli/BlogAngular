@@ -1,12 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-
 p { 
     font-family: 'Noto Sans JP', sans-serif; 
 } 
 
+button {
+  background: transparent;
+  color: rgb(61, 10, 145);
+  border: 1px solid rgb(61, 10, 145);
+  outline: none;
+  padding: 0 1.528em;
+  min-height: 44px;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 12px;
+  transition: box-shadow 0.1s ease;
+  font-size: 1em;
+  font-weight: 700;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 2px;
+  letter-spacing: .5px;
+}
+
+button.danger {
+  color: #ffffff;
+  background: #a93c32;
+  box-shadow: 0 4px 12px rgba(169, 60, 50, 0.5);
+  border: none;
+  letter-spacing: .5px;
+}
+
+button.danger:hover {
+  box-shadow: none;
+}
+
 .container {
     padding-left: 0;
     padding-right: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }

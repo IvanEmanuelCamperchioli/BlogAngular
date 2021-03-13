@@ -2,15 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RouterModule } from '@angular/router';
+import { routes } from './components-routing.module';
+
 import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatRippleModule} from '@angular/material/core';
+
 import { LazyLoadImageModule, LAZYLOAD_IMAGE_HOOKS, ScrollHooks } from 'ng-lazyload-image';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
-import { routes } from './components-routing.module';
 import { PostCommentsComponent } from './post-comments/post-comments.component';
 import { PhotosComponent } from './photos/photos.component';
 import { DialogComponent } from './dialog/dialog.component';
@@ -32,6 +35,7 @@ import { DialogComponent } from './dialog/dialog.component';
     MatListModule,
     MatExpansionModule,
     MatDialogModule,
+    MatRippleModule,
     LazyLoadImageModule,
     RouterModule.forChild(routes)
   ],

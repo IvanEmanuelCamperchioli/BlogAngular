@@ -1,6 +1,7 @@
 .photo {
     height: 15vw;
     width: 15vw;
+    cursor: pointer;
 }
 
 .img {

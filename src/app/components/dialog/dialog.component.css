@@ -1,3 +1,7 @@
+button {
+    background-color: none;
+}
+
 .flex-box {
     height: 100%;
     width: 100%;
@@ -41,7 +45,14 @@
     padding: 0;
 }
 
+
+
 .photo {
     height: 600px;
     width: 600px;
+}
+
+.swal2-cancel {
+    background-color: #000 !important;
+
 }

@@ -1,20 +1,30 @@
 
 <div *ngIf="!postsById" class="d-flex flex-column container col-sm-3 text-center mb-3">
-    <label class="text-uppercase" for="filter">Filtrar por ID</label>
     <div class="flex">
-        <input class="filter-input" type="number" name="filterPosts" [(ngModel)]="filterPosts">
-        <button class="outlined ms-2 col-sm-5 separate" (click)="sendId(filterPosts)">Filtrar</button>  
+        <mat-form-field style="width: 200px;">
+            <mat-label>Filtrar por número de ID</mat-label>
+            <input 
+                matInput 
+                class="filter-input ps-3 pe-3" 
+                type="number" 
+                name="filterPosts" 
+                [(ngModel)]="filterPosts"
+            >
+        </mat-form-field>
+        <button class="outlined ms-5 col-sm-5 separate" (click)="sendId(filterPosts)">Filtrar</button>  
     </div>
 </div>
 
-<mat-accordion >
+
+<mat-accordion>
     <mat-expansion-panel class="container" *ngFor="let post of posts; index as i" hideToggle>
-        <mat-expansion-panel-header class="row">
+        <mat-expansion-panel-header matRipple class="row">
             <mat-panel-title *ngIf="postsById; else userItem" class="col-md-2">
-                {{ i + 1 }} Posteo
+                <p>{{ i + 1 }} - Posteo</p>
+                <i class="far fa-address-card ms-2 post"></i>
             </mat-panel-title>
             <ng-template #userItem>
-                Posteos del usuario {{ post.userId }}
+                Posteos del usuario con ID: {{ post.userId }}
             </ng-template>
         </mat-expansion-panel-header>
         
@@ -35,3 +45,4 @@
         </mat-list>
     </mat-expansion-panel>
 </mat-accordion>
+

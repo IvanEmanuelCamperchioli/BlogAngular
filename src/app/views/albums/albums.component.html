@@ -1,9 +1,13 @@
 <mat-accordion >
-    <mat-expansion-panel class="container" *ngFor="let album of albums" hideToggle>
-        <mat-expansion-panel-header class="row">
-            <mat-panel-title class="col-md-2">
-                Album: {{ album.id }}
+    <mat-expansion-panel class="container" *ngFor="let album of albums; index as i" hideToggle>
+        <mat-expansion-panel-header matRipple class="row">
+            <mat-panel-title *ngIf="albumsById; else albumItem" class="col-md-2">
+                <p>{{ i + 1 }} - Album</p>
+                <i class="fas fa-image  ms-2 album"></i>
             </mat-panel-title>
+            <ng-template #albumItem>
+                Albumes del usuario con ID: {{ album.userId }}
+            </ng-template>
         </mat-expansion-panel-header>
         
         <mat-list class="row">

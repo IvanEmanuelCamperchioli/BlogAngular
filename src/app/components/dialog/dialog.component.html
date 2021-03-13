@@ -1,9 +1,21 @@
 <div class="flex-box">
     <div class="container flex-item">
-        <h1 class="pe-2 title" mat-dialog-title>{{ data.title }}</h1>
+        <h1 class="pe-1 title" mat-dialog-title>{{ data.title }}</h1>
         <div mat-dialog-actions>
-            <button class="danger button-danger me-2" mat-button mat-dialog-close="true" >Eliminar</button>
-            <button class="outlined button-color" mat-button mat-dialog-close="true" >Cerrar</button>
+            <button 
+                class="danger ms-5 me-2" 
+                mat-button 
+                mat-dialog-close="true" 
+            >
+                Eliminar
+            </button>
+            <button 
+                class="outlined button-color" 
+                mat-button 
+                mat-dialog-close="false" 
+            >
+                Cerrar
+            </button>
         </div>     
     </div>
     <div class="flex-photo" mat-dialog-content>

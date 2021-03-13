@@ -1,9 +1,13 @@
 
 <mat-accordion >
     <mat-expansion-panel class="container" *ngFor="let user of users" hideToggle>
-        <mat-expansion-panel-header class="row">
-            <mat-panel-title class="col-md-4">
-                {{ user.id }} - {{ user.username }}
+        <mat-expansion-panel-header 
+            matRipple 
+            class="row"
+        >
+            <mat-panel-title class="flex col-md-4 ">
+                <i class="me-2 user fas fa-user-tie"></i>
+                <p>{{ user.username }}</p>
             </mat-panel-title>
             <mat-panel-description class="col-sm">
                <a [routerLink]="['/users/posts', user.id]">Posteos</a>

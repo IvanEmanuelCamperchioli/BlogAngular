@@ -1,3 +1,22 @@
 .mat-list-item {
     border-bottom: 3px solid #9575CD;
 }
+
+.user {
+    color: rgb(61, 10, 145);
+    width: 28.05px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+    /* align-items: flex-end; */
+}
+
+p {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 0;
+}

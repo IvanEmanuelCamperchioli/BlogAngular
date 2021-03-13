@@ -1,7 +1,7 @@
 
 <mat-accordion >
     <mat-expansion-panel class="container" *ngFor="let comment of comments" hideToggle>
-        <mat-expansion-panel-header class="row">
+        <mat-expansion-panel-header matRipple class="row">
             <mat-panel-title class="col-md-2">
                 {{ comment.name }}
             </mat-panel-title>

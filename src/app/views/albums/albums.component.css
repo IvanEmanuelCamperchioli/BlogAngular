@@ -1,3 +1,11 @@
 .mat-list-item {
     border-bottom: 3px solid #9575CD;
 }
+
+.album {
+    color: rgb(61, 10, 145);
+    width: 28.05px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}

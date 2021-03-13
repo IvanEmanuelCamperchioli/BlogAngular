@@ -1,23 +1,12 @@
 <div class="flex">
-<div class="container img" *ngFor="let photo of photos">
+<div class="container img" *ngFor="let photo of filteredPhotos">
     <div>
-        <button class=" danger text" mat-raise-button (click)="openDialog(photo.url, photo.title)">
+        <div 
+          mat-raise-button 
+          (click)="openDialog(photo.url, photo.title, photo.id)"
+        >
           <img class="img-fluid photo" [lazyLoad]="photo.thumbnailUrl" />
-        </button>
+        </div>
     </div>
 </div>
 </div>
-  
-  <!-- Dialog -->
-  <!-- <h1 mat-dialog-title>Hi {{data.name}}</h1>
-  <div mat-dialog-content>
-    <p>What's your favorite animal?</p>
-    <mat-form-field>
-      <mat-label>Favorite Animal</mat-label>
-      <input matInput [(ngModel)]="data.animal">
-    </mat-form-field>
-  </div>
-  <div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">No Thanks</button>
-    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
-  </div> -->
