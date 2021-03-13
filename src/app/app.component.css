@@ -1,0 +1,6 @@
+.order {
+    height: 86.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

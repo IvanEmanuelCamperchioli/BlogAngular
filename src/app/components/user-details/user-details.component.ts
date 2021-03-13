@@ -19,7 +19,9 @@ export class UserDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUserById() 
+    if(this.userId) {
+      this.getUserById()
+    } 
   }
 
   getUserById() {

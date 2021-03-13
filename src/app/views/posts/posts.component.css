@@ -10,4 +10,10 @@
 
 .separate {
     letter-spacing: 1px;
+    border: 1px solid rgb(61, 10, 145);
+    color: rgb(61, 10, 145);
+}
+
+.filter-input:focus {
+    border-bottom: 2px solid rgb(61, 10, 145);
 }

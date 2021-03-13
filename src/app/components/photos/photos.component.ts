@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Photo } from 'src/app/models/photo.model';
 import { HttpService } from 'src/app/services/http.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-photos',
@@ -12,9 +14,13 @@ export class PhotosComponent implements OnInit {
 
   photoId: number = 0
   photos: Photo;
-  modal: boolean = false
+  photoUrl: string;
 
-  constructor(private route: ActivatedRoute, private httpService: HttpService) {
+  constructor(
+    private route: ActivatedRoute, 
+    private httpService: HttpService,
+    public dialog: MatDialog
+  ) {
     this.route.params.subscribe(params => {                                                                                       
       this.photoId = parseFloat(params.id)
     })
@@ -32,8 +38,18 @@ export class PhotosComponent implements OnInit {
     })
   }
 
-  showModal() {
-    this.modal = true
+  openDialog(photo: string, title: string) {
+    this.photoUrl = photo
+    let dialogRef = this.dialog.open(DialogComponent, {
+      height: '90vh',
+      data: {photo, title}
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog resultado es: ${result}`);
+    });
   }
 
+  
+
 }
+

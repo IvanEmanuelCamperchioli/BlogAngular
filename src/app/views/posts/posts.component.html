@@ -2,7 +2,7 @@
 <div *ngIf="!postsById" class="d-flex flex-column container col-sm-3 text-center mb-3">
     <label class="text-uppercase" for="filter">Filtrar por ID</label>
     <div class="flex">
-        <input type="number" name="filterPosts" [(ngModel)]="filterPosts">
+        <input class="filter-input" type="number" name="filterPosts" [(ngModel)]="filterPosts">
         <button class="outlined ms-2 col-sm-5 separate" (click)="sendId(filterPosts)">Filtrar</button>  
     </div>
 </div>

@@ -1,5 +1,8 @@
-<div class="container">
-    <p class="text-sm-center indigo text-light py-2">
+<div class="container footer">
+    <p *ngIf="currentYear == year; else let twoYear" class="text-sm-center indigo text-light py-2">
         derechos reservados © {{ currentYear }}
     </p>
+    <ng-template #twoYear>
+        derechos reservados © {{ currentYear }} - {{ year }}
+    </ng-template>
 </div>
