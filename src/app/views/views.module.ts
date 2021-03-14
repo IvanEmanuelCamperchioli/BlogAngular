@@ -8,6 +8,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRippleModule} from '@angular/material/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
+import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { ComponentsModule } from '../components/components.module';
 import { FormsModule } from '@angular/forms';
@@ -30,6 +32,8 @@ import { TodosComponent } from './todos/todos.component';
     MatRippleModule,
     MatInputModule,
     MatCardModule,
+    MatSelectModule,
+    MatRadioModule,
     FormsModule,
     ComponentsModule,
     RouterModule.forChild(routes),

@@ -5,6 +5,8 @@ import { Post } from '../models/posts.model';
 import { Comment } from '../models/comments.model';
 import { Album } from '../models/album.model';
 import { Photo } from '../models/photo.model';
+import { environment } from '../../environments/environment';
+import { Todo } from '../models/todos.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,42 +14,48 @@ import { Photo } from '../models/photo.model';
 
 export class HttpService {
 
-  users: User;
 
-  constructor(private http: HttpClient) { 
-    console.log("servicio vinculado")
-  }
+  constructor(private http: HttpClient) { }
   
   getUsers() {
-    return this.http.get<User>('https://jsonplaceholder.typicode.com/users')
+    return this.http.get<User>(`${environment.url}/users`)
   }
 
-  getUserById(id: number) {
-    return this.http.get<User>(`https://jsonplaceholder.typicode.com/users/${id}`)
+  getTodos() {
+    return this.http.get<Todo>(`${environment.url}/todos`)
   }
 
   getAlbums() {
-    return this.http.get<Album>('https://jsonplaceholder.typicode.com/albums')
-  }
-
-  getAlbumById(id: number) {
-    return this.http.get<Album>(`https://jsonplaceholder.typicode.com/users/${id}/albums`)
-  }
-
-  getPosts() {
-    return this.http.get<Post>('https://jsonplaceholder.typicode.com/posts')
+    return this.http.get<Album>(`${environment.url}/albums`)
   }
   
+  getPosts() {
+    return this.http.get<Post>(`${environment.url}/posts`)
+  }
+
+  getUserById(id: number) {
+    return this.http.get<User>(`${environment.url}/users/${id}`)
+  }
+  
+  getAlbumById(id: number) {
+    return this.http.get<Album>(`${environment.url}/users/${id}/albums`)
+  }
+
+  getTodoById(id: number) {
+    return this.http.get<Todo>(`${environment.url}/users/${id}/todos`)
+
+  }
+
   getById(id: number) {
-    return this.http.get<Post>(`https://jsonplaceholder.typicode.com/user/${id}/posts`)
+    return this.http.get<Post>(`${environment.url}/user/${id}/posts`)
   }
 
   getCommentsByPost(id: number) {
-    return this.http.get<Comment>(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
+    return this.http.get<Comment>(`${environment.url}/posts/${id}/comments`)
   }
 
   getPhotosByPost(id: number) {
-    return this.http.get<Photo>(`https://jsonplaceholder.typicode.com/albums/${id}/photos`)
+    return this.http.get<Photo>(`${environment.url}/albums/${id}/photos`)
   }
 
 

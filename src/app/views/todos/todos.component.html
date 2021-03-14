@@ -1,1 +1,84 @@
-<p>todos works!</p>
+<a [routerLink]="['/users']">
+    <i class="icon ms-3 mb-4 fas fa-arrow-left"></i>
+</a>
+
+<div class="container col-sm-3 text-center mb-3">
+    <div class="flex container">
+        <div *ngIf="!todoById">
+            <mat-form-field style="width: 200px;">
+                <mat-label class="ps-4">Filtrar por número de ID</mat-label>
+                <input 
+                    matInput 
+                    class="filter-input ps-3 pe-3" 
+                    type="number" 
+                    name="filterTodo" 
+                    [(ngModel)]="filterTodo"
+                >
+            </mat-form-field>    
+        </div>
+        <div class="ms-5">
+            <mat-form-field appearance="fill">
+                <mat-label>Progreso</mat-label>
+                <mat-select [(value)]="selected">
+                  <mat-option value="true">Completas</mat-option>
+                  <mat-option value="false">Incompletas</mat-option>
+                </mat-select>
+            </mat-form-field>        
+        </div>
+        <button 
+            class="ms-5 col-sm-5 separate" 
+            (click)="sendId(filterTodo, selected, todoById)"
+        >
+            Filtrar
+        </button>  
+    </div>
+</div>
+
+
+<mat-accordion>
+    <mat-expansion-panel 
+        class="container" 
+        *ngFor="let todo of todos; index as i" 
+        hideToggle
+    >
+        <mat-expansion-panel-header matRipple class="row">
+            <mat-panel-title 
+                *ngIf="postsById; else userItem" 
+                class="col-md-2"
+            >
+                <p>{{ i + 1 }} - Todo</p>
+                <i class="far fa-address-card ms-2 post"></i>
+            </mat-panel-title>
+            <ng-template #userItem>
+                Todo del usuario con ID: {{ todo.userId }}
+            </ng-template>
+        </mat-expansion-panel-header>
+        <mat-list class="row">
+            <mat-list-item class="mat-list-item mt-3">
+                <p>
+                    <b>Título: </b> 
+                    {{ todo.title }}
+                </p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item class="mat-list-item mt-3">
+                <p>
+                    <b>Completada: </b> 
+                    {{ todo.completed === true ? 'Si' : 'No' }}
+                </p>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+            <div *ngIf="todo.completed === false" class="d-flex mt-3 col-sm-5">
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button 
+                        (click)="checked(todo)" 
+                        value="true"
+                    >
+                        Completa
+                    </mat-radio-button>
+                  </mat-radio-group>
+            </div>
+            <mat-divider></mat-divider>
+        </mat-list>
+    </mat-expansion-panel>
+</mat-accordion>

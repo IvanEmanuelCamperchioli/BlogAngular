@@ -17,7 +17,6 @@ export class PostCommentsComponent implements OnInit {
     this.route.params.subscribe(params => {                                                                                       
       this.postId = parseFloat(params.id)
     })
-    console.log(this.postId)
   }
 
   ngOnInit(): void {
@@ -26,7 +25,6 @@ export class PostCommentsComponent implements OnInit {
 
   getCommentsByPost() {
     this.httpService.getCommentsByPost(this.postId).subscribe( res => {
-      console.log(res)
       this.comments = res
     })
   }

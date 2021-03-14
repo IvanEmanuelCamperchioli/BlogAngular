@@ -1,17 +1,16 @@
+<a [routerLink]="['/users']">
+    <i class="icon ms-3 mb-4 fas fa-arrow-left"></i>
+</a>
+
+
 
 <div *ngIf="!postsById" class="d-flex flex-column container col-sm-3 text-center mb-3">
     <div class="flex">
         <mat-form-field style="width: 200px;">
-            <mat-label>Filtrar por número de ID</mat-label>
-            <input 
-                matInput 
-                class="filter-input ps-3 pe-3" 
-                type="number" 
-                name="filterPosts" 
-                [(ngModel)]="filterPosts"
-            >
+            <mat-label class="ps-3">Filtrar por número de ID</mat-label>
+            <input matInput class="filter-input ps-3 pe-3" type="number" name="filterPosts" [(ngModel)]="filterPosts">
         </mat-form-field>
-        <button class="outlined ms-5 col-sm-5 separate" (click)="sendId(filterPosts)">Filtrar</button>  
+        <button class="outlined ms-5 col-sm-5 separate" (click)="sendId(filterPosts)">Filtrar</button>
     </div>
 </div>
 
@@ -27,11 +26,15 @@
                 Posteos del usuario con ID: {{ post.userId }}
             </ng-template>
         </mat-expansion-panel-header>
-        
+
         <mat-list class="row">
-            <mat-list-item class="mat-list-item mt-3"><p><b>Título: </b> {{ post.title }}</p></mat-list-item>
+            <mat-list-item class="mat-list-item mt-3">
+                <p><b>Título: </b> {{ post.title }}</p>
+            </mat-list-item>
             <mat-divider></mat-divider>
-            <mat-list-item class="mat-list-item mt-3"><p><b>Contenido: </b> {{ post.body }}</p></mat-list-item>
+            <mat-list-item class="mat-list-item mt-3">
+                <p><b>Contenido: </b> {{ post.body }}</p>
+            </mat-list-item>
             <mat-divider></mat-divider>
             <div class="d-flex col-sm-5">
                 <mat-panel-description class="col-md mt-3">
@@ -39,10 +42,9 @@
                 </mat-panel-description>
                 <mat-panel-description class="col-md mt-3">
                     <a [routerLink]="['/details/post-comments', post.id]">Comentarios</a>
-                </mat-panel-description>    
+                </mat-panel-description>
             </div>
             <mat-divider></mat-divider>
         </mat-list>
     </mat-expansion-panel>
 </mat-accordion>
-

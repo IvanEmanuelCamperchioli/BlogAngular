@@ -13,7 +13,6 @@ export class PostsComponent implements OnInit {
 
   posts: Post;
   postsById: number = 0
-  filterPosts: number;
 
   constructor(private httpService: HttpService, private route: ActivatedRoute) {
     this.route.params.subscribe(params => {                                                                                       

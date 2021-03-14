@@ -10,13 +10,13 @@
                 <p>{{ user.username }}</p>
             </mat-panel-title>
             <mat-panel-description class="col-sm">
-               <a [routerLink]="['/users/posts', user.id]">Posteos</a>
+               <a class="no-decorate" [routerLink]="['/users/posts', user.id]">Posteos</a>
             </mat-panel-description>
             <mat-panel-description class="col-sm">
-                <a [routerLink]="['/users/albums', user.id]">Albumes</a>
+                <a class="no-decorate" [routerLink]="['/users/albums', user.id]">Albumes</a>
             </mat-panel-description>
             <mat-panel-description class="col-sm">
-                TODOs
+                <a class="no-decorate" [routerLink]="['/users/todos', user.id]">TODOs</a>
             </mat-panel-description>
         </mat-expansion-panel-header>
         

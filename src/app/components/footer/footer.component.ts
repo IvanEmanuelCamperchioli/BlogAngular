@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  currentYear: number = 2021
-  year: number = new Date().getFullYear();
+  year: number = 2021
+  currentYear: number = new Date().getFullYear();
+  twoYears: string = `${this.year} - ${this.currentYear}`
 
   constructor() {
   }
 
 
   ngOnInit(): void {
-    console.log(this.year)
   }
 }

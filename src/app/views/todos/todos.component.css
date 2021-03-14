@@ -1,0 +1,22 @@
+.mat-list-item {
+    border-bottom: 3px solid #9575CD;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.separate {
+    letter-spacing: 1px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+.icon {
+    color: rgb(134, 19, 252);
+    font-size: 1.2rem;
+}

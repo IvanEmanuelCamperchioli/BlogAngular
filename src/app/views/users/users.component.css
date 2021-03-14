@@ -3,7 +3,7 @@
 }
 
 .user {
-    color: rgb(61, 10, 145);
+    color: rgb(137, 18, 252);
     width: 28.05px;
     height: 20px;
     display: flex;
@@ -12,11 +12,23 @@
 
 .flex {
     display: flex;
-    /* align-items: flex-end; */
 }
 
 p {
     display: flex;
     align-items: flex-end;
     margin-bottom: 0;
+}
+
+.no-decorate {
+    text-decoration: none;
+    letter-spacing: .5px;
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(103, 58, 183);
+    font-weight: 700;
+    font-size: 1em;
+}
+
+.no-decorate:hover {
+    transform: scaleX(1.1);
 }

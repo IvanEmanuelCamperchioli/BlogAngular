@@ -1,8 +1,12 @@
 <div class="container footer">
-    <p *ngIf="currentYear == year; else let twoYear" class="text-sm-center indigo text-light py-2">
-        derechos reservados © {{ currentYear }}
+    <p *ngIf="year === currentYear; else years" class="text-sm-center indigo text-light py-2">
+        Desarrollado por Ivan | Derechos reservados © {{ year }}
     </p>
-    <ng-template #twoYear>
-        derechos reservados © {{ currentYear }} - {{ year }}
-    </ng-template>
 </div>
+<ng-template #years>
+    <div class="container footer">
+        <p class="text-sm-center indigo text-light py-2">
+            Desarrollado por Ivan | Derechos reservados © {{ twoYears }}
+        </p>
+    </div>
+</ng-template>

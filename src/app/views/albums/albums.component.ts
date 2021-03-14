@@ -29,7 +29,6 @@ export class AlbumsComponent implements OnInit {
 
   getAll() {
     this.httpService.getAlbums().subscribe( response => {
-      console.log(response)
       this.albums = response;
     })
   }
