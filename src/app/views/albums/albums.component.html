@@ -2,32 +2,44 @@
     <i class="icon ms-3 mb-4 fas fa-arrow-left"></i>
 </a>
 
-<mat-accordion >
-    <mat-expansion-panel class="container" *ngFor="let album of albums; index as i" hideToggle>
-        <mat-expansion-panel-header matRipple class="row">
-            <mat-panel-title *ngIf="albumsById; else albumItem" class="col-md-2">
-                <p>{{ i + 1 }} - Album</p>
-                <i class="fas fa-image  ms-2 album"></i>
-            </mat-panel-title>
-            <ng-template #albumItem>
-                Albumes del usuario con ID: {{ album.userId }}
-            </ng-template>
-        </mat-expansion-panel-header>
-        
-        <mat-list class="row">
-            <mat-list-item class="mat-list-item mt-3"><p><b>Título: </b> {{ album.title }}</p></mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item class="mat-list-item mt-3"><p><b>pertenecen al usuario n° </b> {{ album.userId }}</p></mat-list-item>
-            <mat-divider></mat-divider>
-            <div class="d-flex col-sm-5">
-                <mat-panel-description class="col-md mt-3">
-                    <a [routerLink]="['/details/user-details', album.userId]">Detalle de usuario</a>
-                </mat-panel-description>
-                <mat-panel-description class="col-md mt-3">
-                    <a [routerLink]="['/details/album-photos', album.userId]" >Galería de fotos</a>
-                </mat-panel-description>    
-            </div>
-            <mat-divider></mat-divider>
-        </mat-list>
-    </mat-expansion-panel>
-</mat-accordion>
+<div *ngIf="albums === undefined; else isAlbums">
+    <mat-spinner 
+    class="container text-center mt-5" 
+>
+</mat-spinner>
+<h3 class="container text-center mt-1">Cargando Albums...</h3>
+</div>
+
+<ng-template #isAlbums>
+    <mat-accordion >
+        <mat-expansion-panel class="container" *ngFor="let album of albums; index as i" hideToggle>
+            <mat-expansion-panel-header matRipple class="row">
+                <mat-panel-title *ngIf="albumsById; else albumItem" class="col-md-2">
+                    <p>{{ i + 1 }} - Album</p>
+                    <i class="fas fa-image  ms-2 album"></i>
+                </mat-panel-title>
+                <ng-template #albumItem>
+                    Albumes del usuario con ID: {{ album.userId }}
+                </ng-template>
+            </mat-expansion-panel-header>
+            
+            <mat-list class="row">
+                <mat-list-item class="mat-list-item mt-3"><p><b>Título: </b> {{ album.title }}</p></mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item class="mat-list-item mt-3"><p><b>pertenecen al usuario n° </b> {{ album.userId }}</p></mat-list-item>
+                <mat-divider></mat-divider>
+                <div class="d-flex col-sm-5">
+                    <mat-panel-description class="col-md mt-3">
+                        <a [routerLink]="['/details/user-details', album.userId]">Detalle de usuario</a>
+                    </mat-panel-description>
+                    <mat-panel-description class="col-md mt-3">
+                        <a [routerLink]="['/details/album-photos', album.userId]" >Galería de fotos</a>
+                    </mat-panel-description>    
+                </div>
+                <mat-divider></mat-divider>
+            </mat-list>
+        </mat-expansion-panel>
+    </mat-accordion>    
+</ng-template>
+
+

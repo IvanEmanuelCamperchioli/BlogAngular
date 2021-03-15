@@ -10,6 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { ComponentsModule } from '../components/components.module';
 import { FormsModule } from '@angular/forms';
@@ -34,6 +35,7 @@ import { TodosComponent } from './todos/todos.component';
     MatCardModule,
     MatSelectModule,
     MatRadioModule,
+    MatProgressSpinnerModule,
     FormsModule,
     ComponentsModule,
     RouterModule.forChild(routes),

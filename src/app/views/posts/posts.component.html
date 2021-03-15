@@ -14,37 +14,48 @@
     </div>
 </div>
 
+<div *ngIf="posts === undefined; else isPosts">
+    <mat-spinner 
+    class="container text-center mt-5" 
+>
+</mat-spinner>
+<h3 class="container text-center mt-1">Cargando posts...</h3>
+</div>
 
-<mat-accordion>
-    <mat-expansion-panel class="container" *ngFor="let post of posts; index as i" hideToggle>
-        <mat-expansion-panel-header matRipple class="row">
-            <mat-panel-title *ngIf="postsById; else userItem" class="col-md-2">
-                <p>{{ i + 1 }} - Posteo</p>
-                <i class="far fa-address-card ms-2 post"></i>
-            </mat-panel-title>
-            <ng-template #userItem>
-                Posteos del usuario con ID: {{ post.userId }}
-            </ng-template>
-        </mat-expansion-panel-header>
+<ng-template #isPosts>
+    <mat-accordion>
+        <mat-expansion-panel class="container" *ngFor="let post of posts; index as i" hideToggle>
+            <mat-expansion-panel-header matRipple class="row">
+                <mat-panel-title *ngIf="postsById; else userItem" class="col-md-2">
+                    <p>{{ i + 1 }} - Posteo</p>
+                    <i class="far fa-address-card ms-2 post"></i>
+                </mat-panel-title>
+                <ng-template #userItem>
+                    Posteos del usuario con ID: {{ post.userId }}
+                </ng-template>
+            </mat-expansion-panel-header>
+    
+            <mat-list class="row">
+                <mat-list-item class="mat-list-item mt-3">
+                    <p><b>Título: </b> {{ post.title }}</p>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item class="mat-list-item mt-3">
+                    <p><b>Contenido: </b> {{ post.body }}</p>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <div class="d-flex col-sm-5">
+                    <mat-panel-description class="col-md mt-3">
+                        <a [routerLink]="['/details/user-details', post.userId]">Detalle de usuario</a>
+                    </mat-panel-description>
+                    <mat-panel-description class="col-md mt-3">
+                        <a [routerLink]="['/details/post-comments', post.id]">Comentarios</a>
+                    </mat-panel-description>
+                </div>
+                <mat-divider></mat-divider>
+            </mat-list>
+        </mat-expansion-panel>
+    </mat-accordion>
+</ng-template>
 
-        <mat-list class="row">
-            <mat-list-item class="mat-list-item mt-3">
-                <p><b>Título: </b> {{ post.title }}</p>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <mat-list-item class="mat-list-item mt-3">
-                <p><b>Contenido: </b> {{ post.body }}</p>
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <div class="d-flex col-sm-5">
-                <mat-panel-description class="col-md mt-3">
-                    <a [routerLink]="['/details/user-details', post.userId]">Detalle de usuario</a>
-                </mat-panel-description>
-                <mat-panel-description class="col-md mt-3">
-                    <a [routerLink]="['/details/post-comments', post.id]">Comentarios</a>
-                </mat-panel-description>
-            </div>
-            <mat-divider></mat-divider>
-        </mat-list>
-    </mat-expansion-panel>
-</mat-accordion>
+

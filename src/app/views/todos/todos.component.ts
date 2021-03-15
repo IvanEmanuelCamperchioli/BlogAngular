@@ -12,8 +12,7 @@ import Swal from 'sweetalert2';
 export class TodosComponent implements OnInit {
 
   todos: any;
-  filteredTodos: any
-  filterTodo: any;
+  filterTodo: number;
   selected: any;
   todoById: number = 0;
   check: boolean;
@@ -35,14 +34,12 @@ export class TodosComponent implements OnInit {
   getAll() {
     this.httpService.getTodos().subscribe( response => {
       this.todos = response
-      this.filteredTodos = response
     })
   }
 
   getTodosById() {
     this.httpService.getTodoById(this.todoById).subscribe( response => {
       this.todos = response
-      this.filteredTodos = response
     })
   }
   
@@ -72,11 +69,12 @@ export class TodosComponent implements OnInit {
       title: `¿La tarea "${todo.title}" está completa?`,
       showDenyButton: true,
       showCancelButton: false,
+      buttonsStyling: false,
       confirmButtonText: `Si, actualizar estatus`,
       denyButtonText: `No, aún sigo en ella`,
     }).then((result) => {
       if (result.isConfirmed) {
-        this.filteredTodos = this.todos.filter(item => { 
+        this.todos.filter(item => { 
           if(item.userId === todo.userId && item.id === todo.id) {
             item.completed = true
           }
@@ -88,6 +86,5 @@ export class TodosComponent implements OnInit {
       }
     })
   }
-
 
 }
