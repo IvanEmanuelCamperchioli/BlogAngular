@@ -2,3 +2,7 @@
     display: flex;
     justify-content: center;
 }
+
+.active-link {
+    border-bottom: 2px solid rgb(103, 58, 183);
+}

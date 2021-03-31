@@ -13,24 +13,4 @@ export class DialogComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  // swalAlert(id: number) {
-  //   Swal.fire({
-  //     title: '¿Estás seguro que quieres eliminar?',
-  //     icon: 'warning',
-  //     buttonsStyling: false,
-  //     showCancelButton: true,
-  //     cancelButtonText: 'Cancelar',
-  //     confirmButtonText: 'Si, eliminar esta foto'
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       // Swal.fire(
-  //       //   'Deleted!',
-  //       //   'Your file has been deleted.',
-  //       //   'success'
-  //       // )
-  //     }
-  //   })
-  // }
-
 }
